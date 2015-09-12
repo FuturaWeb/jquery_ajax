@@ -1,9 +1,18 @@
+$(document).ready(function(e) {
+
+	$(".run").click(function(){
 		$.ajax({
 		  method: "POST",
-		  url: "some.php",
+		  url: "process.php",
 		  context: this, /*for keeping 'this' inside ajax funcion*/
-		  data: { name: "John", location: "Boston" }
+		  data: {
+		  	number1: $("input#val1").val(),
+		  	number2: $("input#val2").val()
+		  }
 		})
-		  .done(function( msg ) {
-			alert( "Data Saved: " + msg );
+		  .done(function( result ) {
+			alert(result);
 		  });
+	});
+	
+});
